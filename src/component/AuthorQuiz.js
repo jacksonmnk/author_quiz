@@ -12,8 +12,15 @@ function Hero() {
     </div>);
 }
 
-function Turn() {
-    return (<div></div>);
+function Turn({author, books}) {
+    return (<div className="row turn" style={{backgroundColor: "white"}}>
+        <div className="col-4 offset-1">
+            <img src={author.imageUrl} className="authorImage" alt="Author" width="450"/>
+        </div>
+        <div className="col-6">
+            {books.map((title) => <p>{title}</p>)}
+        </div>
+    </div>);
 }
 
 function Continue() {
@@ -21,23 +28,23 @@ function Continue() {
 }
 
 function Footer() {
-    return(<div id="footer" className="row">
+    return (<div id="footer" className="row">
         <div className="col-12">
-            <p className="text-muted credit">All images are from <a href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a> and are in the public domain.</p>
+            <p className="text-muted credit">All images are from <a href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia
+                Commons</a> and are in the public domain.</p>
         </div>
     </div>)
 }
 
-class AuthorQuiz extends Component {
-    render() {
-        return (
-            <div className='container-fluid'>
-                <Hero/>
-                <Turn/>
-                <Continue/>
-                <Footer/>
-            </div>
-        )
-    }
+function AuthorQuiz({turnData}) {
+    return (
+        <div className='container-fluid'>
+            <Hero/>
+            <Turn {...turnData} />
+            <Continue/>
+            <Footer/>
+        </div>
+    )
 }
+
 export default AuthorQuiz;
