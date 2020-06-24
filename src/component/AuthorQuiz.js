@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../App.css';
-import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 function Hero() {
@@ -12,6 +12,22 @@ function Hero() {
     </div>);
 }
 
+function Turn() {
+    return (<div></div>);
+}
+
+function Continue() {
+    return (<div></div>);
+}
+
+function Footer() {
+    return(<div id="footer" className="row">
+        <div className="col-12">
+            <p className="text-muted credit">All images are from <a href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a> and are in the public domain.</p>
+        </div>
+    </div>)
+}
+
 class AuthorQuiz extends Component {
     render() {
         return (
@@ -19,7 +35,9 @@ class AuthorQuiz extends Component {
                 <Hero/>
                 <Turn/>
                 <Continue/>
+                <Footer/>
             </div>
         )
     }
 }
+export default AuthorQuiz;
